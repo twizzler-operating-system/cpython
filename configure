@@ -4111,6 +4111,9 @@ then
 	*-*-linux*)
 		ac_sys_system=Linux
 		;;
+	*-*-twizzler*)
+	    ac_sys_system=Twizzler
+		;;
 	*-*-cygwin*)
 		ac_sys_system=Cygwin
 		;;
@@ -4155,6 +4158,7 @@ then
 	freebsd*) MACHDEP="freebsd";;
 	linux-android*) MACHDEP="android";;
 	linux*) MACHDEP="linux";;
+	twizzler*) MACHDEP="twizzler";;
 	cygwin*) MACHDEP="cygwin";;
 	darwin*) MACHDEP="darwin";;
 	'')	MACHDEP="unknown";;
@@ -4592,6 +4596,9 @@ if test "$cross_compiling" = yes; then
 		;;
 	*-*-cygwin*)
 		_host_ident=
+		;;
+	*-*-twizzler*)
+		_host_ident=$host_cpu
 		;;
 	*-apple-ios*)
 		_host_os=`echo $host | cut -d '-' -f3`
@@ -13591,7 +13598,7 @@ then
 	Emscripten*|WASI*)
 		LDSHARED='$(CC) -shared'
 		LDCXXSHARED='$(CXX) -shared';;
-	Linux*|GNU*|QNX*|VxWorks*|Haiku*)
+	Linux*|GNU*|QNX*|VxWorks*|Haiku*|Twizzler*)
 		LDSHARED='$(CC) -shared'
 		LDCXXSHARED='$(CXX) -shared';;
 	FreeBSD*)
@@ -35890,4 +35897,3 @@ if test "$ac_cv_header_stdatomic_h" != "yes"; then
   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: Your compiler or platform does have a working C11 stdatomic.h. A future version of Python may require stdatomic.h." >&5
 printf "%s\n" "$as_me: Your compiler or platform does have a working C11 stdatomic.h. A future version of Python may require stdatomic.h." >&6;}
 fi
-
