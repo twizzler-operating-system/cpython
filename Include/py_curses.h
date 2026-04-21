@@ -42,6 +42,7 @@
 #  include <ncursesw/curses.h>
 #elif defined(HAVE_NCURSES_NCURSES_H)
 #  include <ncurses/ncurses.h>
+int setupterm();
 #elif defined(HAVE_NCURSES_CURSES_H)
 #  include <ncurses/curses.h>
 #elif defined(HAVE_NCURSES_H)
