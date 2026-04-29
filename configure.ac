@@ -1577,7 +1577,7 @@ if test $enable_shared = "yes"; then
         PY3LIBRARY=libpython3.so
       fi
       ;;
-    Linux*|GNU*|NetBSD*|FreeBSD*|DragonFly*|OpenBSD*|VxWorks*)
+    Linux*|GNU*|NetBSD*|FreeBSD*|DragonFly*|OpenBSD*|VxWorks*|Twizzler*)
       LDLIBRARY='libpython$(LDVERSION).so'
       BLDLIBRARY='-L. -lpython$(LDVERSION)'
       RUNSHARED=LD_LIBRARY_PATH=`pwd`${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
@@ -3658,6 +3658,8 @@ then
 		LINKFORSHARED='-Wl,-E -N 2048K';;
 	VxWorks*)
 		LINKFORSHARED='-Wl,-export-dynamic';;
+	Twizzler*)
+		LINKFORSHARED='-Wl,--export-dynamic';;
 	esac
 fi
 AC_MSG_RESULT([$LINKFORSHARED])

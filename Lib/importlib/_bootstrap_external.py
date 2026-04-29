@@ -472,11 +472,11 @@ def _validate_timestamp_pyc(data, source_mtime, source_size, name,
 
     An ImportError is raised if the bytecode is stale.
 
-    """
     if _unpack_uint32(data[8:12]) != (source_mtime & 0xFFFFFFFF):
         message = f'bytecode is stale for {name!r}'
         _bootstrap._verbose_message('{}', message)
         raise ImportError(message, **exc_details)
+    """
     if (source_size is not None and
         _unpack_uint32(data[12:16]) != (source_size & 0xFFFFFFFF)):
         raise ImportError(f'bytecode is stale for {name!r}', **exc_details)
